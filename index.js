@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const sqlite3 = require('sqlite3');
 const app = express();
 const port = process.env.PORT || 10000;
 
@@ -9,6 +10,9 @@ app.use(express.json());
 app.use(cors({
     origin: 'https://benkivuva.github.io'
 }));
+
+// Create a new instance of SQLite database
+const db = new sqlite3.Database('halal.db');
 
 // Sample data array
 let data = [];
@@ -20,9 +24,15 @@ app.post('/api/data', (req, res) => {
     res.json(newItem);
 });
 
-// Read
+// Read from SQLite database
 app.get('/api/data', (req, res) => {
-    res.json(data);
+    db.all('SELECT * FROM restaurants', (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+            return;
+        }
+        res.json(rows);
+    });
 });
 
 // Update
