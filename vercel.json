@@ -1,9 +1,8 @@
 {
-    "version": 2,
-    "routes": [
+    "rewrites": [
         {
-            "handle": "vercel",
-            "src": "/(.*)"
+            "source": "/(.*)",
+            "destination": "/"
         }
     ]
 }
