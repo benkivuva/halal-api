@@ -7,7 +7,7 @@ app.use(express.json());
 
 // Allow CORS from specific origin
 app.use(cors({
-    origin: 'https://benkivuva.github.io/halal-directory/'
+    origin: 'https://benkivuva.github.io'
 }));
 
 // Sample data array
