@@ -1,25 +1,25 @@
 const axios = require('axios');
 const fs = require('fs').promises;
 
-const apiUrl = 'http://localhost:5000/api/data'; // Update with your API URL
-const dataFilePath = 'MOCK_DATA.json'; // Path to your JSON file
+const apiUrl = 'http://localhost:5000/api/data';
+const dataFilePath = 'MOCK_DATA.json';
 
-async function deleteAllData() {
-    try {
-        // Fetch existing data from the API
-        const { data: existingData } = await axios.get(apiUrl);
+// async function deleteAllData() {
+//     try {
+//         // Fetch existing data from the API
+//         const { data: existingData } = await axios.get(apiUrl);
 
-        // Delete each item from the API
-        for (const item of existingData) {
-            await axios.delete(`${apiUrl}/${item.id}`);
-            console.log(`Deleted item with ID ${item.id}`);
-        }
+//         // Delete each item from the API
+//         for (const item of existingData) {
+//             await axios.delete(`${apiUrl}/${item.id}`);
+//             console.log(`Deleted item with ID ${item.id}`);
+//         }
 
-        console.log('All existing data deleted.');
-    } catch (error) {
-        console.error('Error deleting existing data:', error.message);
-    }
-}
+//         console.log('All existing data deleted.');
+//     } catch (error) {
+//         console.error('Error deleting existing data:', error.message);
+//     }
+// }
 
 async function postData() {
     try {
