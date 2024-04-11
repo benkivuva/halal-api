@@ -4,7 +4,11 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
-app.use(cors());
+
+// Allow CORS from specific origin
+app.use(cors({
+    origin: 'https://benkivuva.github.io/halal-directory/'
+}));
 
 // Sample data array
 let data = [];
