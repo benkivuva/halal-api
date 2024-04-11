@@ -1,7 +1,7 @@
 const axios = require('axios');
 const fs = require('fs').promises;
 
-const apiUrl = 'http://localhost:5000/api/data';
+const apiUrl = 'https://halal-api-v78o.onrender.com/api/data';
 const dataFilePath = 'MOCK_DATA.json';
 
 async function deleteAllData() {
